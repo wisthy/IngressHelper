@@ -1,0 +1,33 @@
+Basic rules / info
+==================
+* portal is defined by its coordonates (longitude/latitude)
+* a (potential) link is a line between two portals
+* a link is valid only if it doesn't cross an existing link
+* a field is a triangle formed by 3 valid links
+* a field can be included in another field
+* a link can be used for several link
+* a cartography is a list of used valid links
+* a link is oriented. It goes from an origin portal to a target portal
+* a portal can be the origin of a maxium of 8 links
+* a portal can be the destination/target of an unlimited number of links
+
+Algorithm
+=========
+1/ based on the list of portals, generate all the potential links
+2/ define a method to check if a link cross an other link
+
+3/ generate a cartography: 
+for each link:
+	a/ check if it cross a previous validated link (if no previous link, then it's valid)
+	b/ if link not valid, "continue to 3"
+	c/ generate a sub-cartography (recc call to 3) considering the current link is used
+	d/ generate a sub-cartography (recc call to 3) considering the current link is not used
+	e/ return the best result between "c" and "d"
+	
+4/ define a "score" function to compute the number of fields in a cartography
+
+
+
+Portals
+=======
+HP - 50.295923, 5.099632

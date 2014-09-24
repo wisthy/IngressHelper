@@ -2,3 +2,13 @@
 
 require:
     - play
+    - org.apache.commons -> commons-lang3 3.3.2
+    - openmap -> openmap -> 5.1.4
+
+# My custom repositories
+repositories:
+    - monbnc:
+        type: iBiblio
+        root: "http://vm12.s7.tonbnc.fr:8081/nexus/content/groups/public/"
+        contains:
+            - openmap -> *
