@@ -17,8 +17,8 @@ import be.shoktan.IngressFieldOptimizer.exception.ValidationException;
  * @author wisthler
  *
  */
-public class LinkTest extends UnitTest{
-	private static final Logger LOG = LoggerFactory.getLogger(LinkTest.class);
+public class SimpleLinkTest extends UnitTest{
+	private static final Logger LOG = LoggerFactory.getLogger(SimpleLinkTest.class);
 	
 	Portal memoirePrisonierPolitique;
 	Portal demiCheval;

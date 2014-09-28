@@ -13,8 +13,8 @@ import org.slf4j.LoggerFactory;
 
 import play.test.UnitTest;
 
-public class PortalTest extends UnitTest {
-	private static final Logger LOG = LoggerFactory.getLogger(PortalTest.class);
+public class SimplePortalTest extends UnitTest {
+	private static final Logger LOG = LoggerFactory.getLogger(SimplePortalTest.class);
 
 	@Before
 	public void setUp() throws Exception {
