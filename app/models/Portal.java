@@ -6,6 +6,10 @@ public class Portal {
 	private String name;
 	private Point coord;
 	
+	
+	
+	/* =============== Constructors =============== */	
+	
 	/**
 	 * 
 	 * @param name the name of the portal
@@ -17,6 +21,10 @@ public class Portal {
 		this.coord = new Point(latitude, longitude);
 	}
 
+	
+	
+	/* =============== Getters/Setters =============== */
+	
 	/**
 	 * @return the name
 	 */
@@ -53,5 +61,27 @@ public class Portal {
 	 */
 	public Double getLongitude(){
 		return (this.coord != null)?this.coord.longitude:null;
+	}	
+	
+	
+	
+	/* =============== Override/Implement method =============== */	
+	
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Portal [name=");
+		builder.append(name);
+		builder.append(", coord=");
+		builder.append(coord);
+		builder.append("]");
+		return builder.toString();
 	}
+	
+	
+	
+	/* =============== Others methods =============== */
 }

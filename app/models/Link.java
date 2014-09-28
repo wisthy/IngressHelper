@@ -56,7 +56,19 @@ public class Link {
 	
 	/* =============== Override/Implement method =============== */	
 	
-	
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Link [");
+		builder.append(origin);
+		builder.append(" -> ");
+		builder.append(target);
+		builder.append("]");
+		return builder.toString();
+	}
 	
 	
 	/* =============== Others methods =============== */	
