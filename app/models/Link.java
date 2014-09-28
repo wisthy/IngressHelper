@@ -6,6 +6,11 @@ package models;
 import java.util.Arrays;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import be.shoktan.IngressFieldOptimizer.exception.ValidationException;
+
 import com.google.maps.clients.mapsengine.geojson.LineString;
 import com.google.maps.clients.mapsengine.geojson.Point;
 
@@ -13,7 +18,9 @@ import com.google.maps.clients.mapsengine.geojson.Point;
  * @author wisthler
  *
  */
-public class Link {
+public class Link implements IValidable{
+	private static final Logger LOG = LoggerFactory.getLogger(Link.class);
+	
 	private Portal origin;
 	private Portal target;
 	private LineString line;
@@ -26,10 +33,11 @@ public class Link {
 	 * @param origin
 	 * @param target
 	 */
-	private Link(Portal origin, Portal target) {
+	public Link(Portal origin, Portal target) {
 		super();
 		this.origin = origin;
 		this.target = target;
+		validate();
 		build();
 	}
 
@@ -70,14 +78,45 @@ public class Link {
 		return builder.toString();
 	}
 	
+	/*
+	 * (non-Javadoc)
+	 * @see models.IValidable#validate()
+	 */
+	@Override
+	public void validate() throws ValidationException{
+		if(LOG.isDebugEnabled())LOG.debug("trying to validate "+this);
+		
+		if(origin == null){
+			throw new ValidationException("the origin portal cannot be null");
+		}
+		
+		if(target == null){
+			throw new ValidationException("the target portal cannot be null");
+		}
+		
+		if(origin.equals(target)){
+			throw new ValidationException("origin portal and target portal cannot be the same portal");
+		}
+	}
+	
+	
 	
 	/* =============== Others methods =============== */	
-
+	
 	/**
 	 * compute the line on the map between the two portals
 	 */
 	private void build() {
 		List<Point> list = Arrays.asList(new Point[]{origin.getCoord(), target.getCoord()});
 		this.line = new LineString(list);
+	}
+	
+	/**
+	 * check if the portal specified is either the origin portal or the target portal of this link
+	 * @param portal the specified portal
+	 * @return true if the specified portal is the origin or target portal of this link, false elsewhere
+	 */
+	public boolean contains(Portal portal){
+		return origin == portal || target == portal;
 	}
 }

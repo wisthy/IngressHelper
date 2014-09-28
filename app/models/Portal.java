@@ -1,8 +1,13 @@
 package models;
 
+import org.apache.commons.lang.builder.CompareToBuilder;
+import org.eclipse.jdt.core.dom.ThisExpression;
+
+import be.shoktan.IngressFieldOptimizer.exception.ValidationException;
+
 import com.google.maps.clients.mapsengine.geojson.Point;
 
-public class Portal {
+public final class Portal implements IValidable, Comparable<Portal> {
 	private String name;
 	private Point coord;
 	
@@ -19,6 +24,7 @@ public class Portal {
 	public Portal(String name, double latitude, double longitude){
 		this.name = name;
 		this.coord = new Point(latitude, longitude);
+		validate();
 	}
 
 	
@@ -73,12 +79,40 @@ public class Portal {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Portal [name=");
+		builder.append("Portal [");
 		builder.append(name);
-		builder.append(", coord=");
-		builder.append(coord);
-		builder.append("]");
+		builder.append("(");
+		if(coord == null){
+			builder.append("null");
+		}else{
+			builder.append(coord.latitude);
+			builder.append(", ");
+			builder.append(coord.longitude);
+		}
+		
+		builder.append(")]");
 		return builder.toString();
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * @see models.IValidable#validate()
+	 */
+	@Override
+	public void validate() throws ValidationException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * @see java.lang.Comparable#compareTo(java.lang.Object)
+	 */
+	@Override
+	public int compareTo(Portal o) {
+		return new CompareToBuilder().append(this.coord.latitude, o.coord.latitude)
+				.append(this.coord.longitude, o.coord.longitude)
+				.toComparison();
 	}
 	
 	

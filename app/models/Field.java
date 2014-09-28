@@ -4,7 +4,6 @@
 package models;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.SortedSet;
 import java.util.TreeSet;
@@ -12,7 +11,6 @@ import java.util.TreeSet;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import be.shoktan.IngressFieldOptimizer.exception.FieldValidationException;
 import be.shoktan.IngressFieldOptimizer.exception.ValidationException;
 
 import com.google.maps.clients.mapsengine.geojson.Point;
@@ -22,7 +20,7 @@ import com.google.maps.clients.mapsengine.geojson.Polygon;
  * @author wisthler
  *
  */
-public class Field {
+public class Field implements IValidable{
 	private static final Logger LOG = LoggerFactory.getLogger(Field.class);
 	
 	private List<Link> links = new ArrayList<>();
@@ -44,7 +42,7 @@ public class Field {
 		try {
 			validate();
 		} catch (ValidationException e) {
-			LOG.error("unable to validate this field", e);
+			LOG.error("unable to validate this field:"+ e.getMessage());
 			throw e;
 		}
 		build();
@@ -76,38 +74,62 @@ public class Field {
 		return "Field [links=" + links + "]";
 	}
 	
-	
-	
-	/* =============== Others methods =============== */
-	
-	/**
-	 * try to validate the field to ensure it follow the rules
-	 * @throws FieldValidationException if at least one rule is not respected
+	/*
+	 * (non-Javadoc)
+	 * @see models.IValidable#validate()
 	 */
-	private void validate() throws FieldValidationException{
+	@Override
+	public void validate() throws ValidationException{
+		if(LOG.isDebugEnabled())LOG.debug("trying to validate "+this);
+		
 		if(this.links == null) {
-			throw new FieldValidationException(this, "no links in the field");
+			throw new ValidationException("no links in the field");
 		}
 		
 		if(this.links.size() != 3) {
-			throw new FieldValidationException(this, "there should be exactly three links to create a field");
+			throw new ValidationException("there should be exactly three links to create a field");
 		}
 		
 
 		if(links.get(0) == null || links.get(1) == null ||links.get(2) == null){
-			throw new FieldValidationException(this, "all the links must be initialized before building the field");
+			throw new ValidationException("all the links must be initialized before building the field");
 		}
 		
 		for(int i = 0; i < 3; i++){
-			int origin = i;
-			int target = (i + 1) % 3; // modulo 3
-			if(links.get(origin).getTarget() != links.get(target).getOrigin()){
-				throw new FieldValidationException(this, "the target portal of a link must be the origin portal of the next link");
+			Link link1 = links.get(i);
+			Link link2 = links.get((i + 1) % 3); // modulo 3
+			Link link3 = links.get((i + 2) % 3);
+			
+			boolean ok = false;
+			
+			if(link2.contains(link1.getOrigin()) && link3.contains(link1.getTarget()) && !link2.contains(link1.getTarget()) && ! link3.contains(link1.getOrigin())){
+				ok = true;
 			}
+			
+			if(!ok && link2.contains(link1.getTarget()) && link3.contains(link1.getOrigin()) && !link2.contains(link1.getOrigin()) && !link3.contains(link1.getTarget())){
+				ok = true;
+			}
+			
+			if(!ok){
+				throw new ValidationException("each binome of links in a field must have exactly one common portal");
+			}
+			
+			/*if((!link2.contains(link1.getOrigin())) && (!link2.contains(link1.getTarget()))){
+				throw new ValidationException("two links of the field must have a common portal!");
+			}*/
 		}
 		
 		
+		
+		
+		
 	}
+	
+	
+	
+	/* =============== Others methods =============== */
+	
+	
 	
 	/**
 	 * build the actual triangle representing the field using the provided links
