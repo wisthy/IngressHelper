@@ -3,6 +3,12 @@
  */
 package models;
 
+import java.util.Arrays;
+import java.util.List;
+
+import com.google.maps.clients.mapsengine.geojson.LineString;
+import com.google.maps.clients.mapsengine.geojson.Point;
+
 /**
  * @author wisthler
  *
@@ -10,8 +16,11 @@ package models;
 public class Link {
 	private Portal origin;
 	private Portal target;
+	private LineString line;
+
 	
-	
+
+	/* =============== Constructors =============== */	
 	
 	/**
 	 * @param origin
@@ -21,8 +30,12 @@ public class Link {
 		super();
 		this.origin = origin;
 		this.target = target;
+		build();
 	}
 
+
+
+	/* =============== Getters/Setters =============== */
 
 
 	/**
@@ -40,4 +53,19 @@ public class Link {
 	}
 	
 	
+	
+	/* =============== Override/Implement method =============== */	
+	
+	
+	
+	
+	/* =============== Others methods =============== */	
+
+	/**
+	 * compute the line on the map between the two portals
+	 */
+	private void build() {
+		List<Point> list = Arrays.asList(new Point[]{origin.getCoord(), target.getCoord()});
+		this.line = new LineString(list);
+	}
 }

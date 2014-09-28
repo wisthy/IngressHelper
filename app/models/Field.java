@@ -3,12 +3,17 @@
  */
 package models;
 
+import java.util.SortedSet;
+import java.util.TreeSet;
+
 /**
  * @author wisthler
  *
  */
 public class Field {
-	private Link[] links;
+	private SortedSet<Link> links = new TreeSet<>();
+	
+	/* =============== Constructors =============== */	
 
 	
 	/**
@@ -16,11 +21,29 @@ public class Field {
 	 * @param link2
 	 * @param link3
 	 */
-	private Field(Link link1, Link link2, Link link3) {
+	public Field(Link link1, Link link2, Link link3) {
 		super();
-		this.links = new Link[]{link1, link2, link3};
+		this.links.add(link1);
+		this.links.add(link2);
+		this.links.add(link3);
+		build();
 	}
 	
 	
-
+	/* =============== Getters/Setters =============== */
+	
+	public SortedSet<Link> getLinks(){
+		return this.links;
+	}
+	
+	/* =============== Override/Implement method =============== */	
+	
+	
+	
+	
+	/* =============== Others methods =============== */	
+	
+	private void build(){
+		
+	}
 }
