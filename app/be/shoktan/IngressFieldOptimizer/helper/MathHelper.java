@@ -1,10 +1,14 @@
 package be.shoktan.IngressFieldOptimizer.helper;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import models.Link;
 import models.Portal;
 
 public class MathHelper {
-	public static final double ZERO = 0.00001;
+	private static final Logger LOG = LoggerFactory.getLogger(MathHelper.class);
+	public static final double ZERO = 0.000000000001;
 	
 	public static boolean doSegmentsIntersectEachOther(Link l1, Link l2){
 		/*
@@ -16,13 +20,15 @@ public class MathHelper {
 		Line first = new Line(l1);
 		Line second = new Line(l2);
 		
-		double a = second.a - first.a;
+		double a = first.a - second.a;
 		
 		if(Math.abs(a) < ZERO){
 			// lines don't cross
+			LOG.debug("lines don't cross");
 			result = false;
 		}else{
 			double x = (second.b - first.b) / a;
+			LOG.debug("intersection: "+x);
 			return l1.containsLatitude(x) && l2.containsLatitude(x);
 		}
 		
@@ -51,6 +57,7 @@ public class MathHelper {
 			
 			this.a = (y1 - y2) / (x1 - x2);
 			this.b = y1 - a * x1;
+			LOG.debug("line created: y = "+a+".x + "+b);
 		}
 	}
 }
