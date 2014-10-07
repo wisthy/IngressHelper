@@ -87,5 +87,28 @@ public class SimpleLinkTest extends UnitTest{
 		
 		
 	}
+	
+	@Test
+	public void testContainsLatitude(){
+		Link link = new Link(demiCheval, cineyKioske);
+		Link reverse = new Link(cineyKioske, demiCheval);
+
+		//demiCheval = new Portal("Demi-cheval", 50.295701 , 5.100146);
+		//cineyKioske = new Portal("Kioske", 50.296477, 5.099647);
+		
+		double[] ok = new double[]{50.295701, 50.295702, 50.296, 50.296477};
+		double[] ko = new double[]{49, 40.5957, 50.296478, 50.297};
+		
+		for(double d : ok){
+			assertTrue(link.containsLatitude(d));
+			assertTrue(reverse.containsLatitude(d));
+		}
+		
+		for(double d : ko){
+			assertFalse(link.containsLatitude(d));
+			assertFalse(reverse.containsLatitude(d));
+		}
+		
+	}
 
 }

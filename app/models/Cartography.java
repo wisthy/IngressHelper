@@ -4,6 +4,8 @@
 package models;
 
 import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
 
@@ -18,7 +20,7 @@ public class Cartography {
 	private static final Logger LOG = LoggerFactory.getLogger(Cartography.class);
 	
 	private SortedSet<Portal> allPortals = new TreeSet<>();
-	private SortedSet<Link> allLinks = new TreeSet<>();
+	private Set<Link> allLinks = new HashSet<>();
 	
 	
 	
@@ -35,6 +37,12 @@ public class Cartography {
 	
 	
 	/* =============== Getters/Setters           =============== */
+	
+	public Set<Link> getAllLinks(){
+		return this.allLinks;
+	}
+	
+	
 	/* =============== Override/Implement method =============== */	
 	/* =============== Others methods            =============== */
 	

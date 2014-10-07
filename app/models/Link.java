@@ -119,4 +119,10 @@ public class Link implements IValidable{
 	public boolean contains(Portal portal){
 		return origin == portal || target == portal;
 	}
+
+
+
+	public boolean containsLatitude(double x) {
+		return (x >= origin.getLatitude() && x <= target.getLatitude()) || (x <= origin.getLatitude() && x >= target.getLatitude()); 
+	}
 }
