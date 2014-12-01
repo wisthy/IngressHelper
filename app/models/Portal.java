@@ -10,6 +10,9 @@ import com.google.maps.clients.mapsengine.geojson.Point;
 public final class Portal implements IValidable, Comparable<Portal> {
 	private String name;
 	private Point coord;
+	private ETeam owningTeam;
+	private boolean guardian;
+	private boolean pivot;
 	
 	
 	
@@ -24,6 +27,7 @@ public final class Portal implements IValidable, Comparable<Portal> {
 	public Portal(String name, double latitude, double longitude){
 		this.name = name;
 		this.coord = new Point(latitude, longitude);
+		reset();
 		validate();
 	}
 
@@ -73,6 +77,60 @@ public final class Portal implements IValidable, Comparable<Portal> {
 	
 	/* =============== Override/Implement method =============== */	
 	
+	/**
+	 * @return the owningTeam
+	 */
+	public ETeam getOwningTeam() {
+		return owningTeam;
+	}
+
+
+
+	/**
+	 * @param owningTeam the owningTeam to set
+	 */
+	public void setOwningTeam(ETeam owningTeam) {
+		this.owningTeam = owningTeam;
+	}
+
+
+
+	/**
+	 * @return true if the portal is a guardian, false elsewhere
+	 */
+	public boolean isGuardian() {
+		return guardian;
+	}
+
+
+
+	/**
+	 * @param guardian true if the portal is a guardian, false elsewhere
+	 */
+	public void setGuardian(boolean guardian) {
+		this.guardian = guardian;
+	}
+
+
+
+	/**
+	 * @return true if the portal is used or usable as pivot, false elsewhere
+	 */
+	public boolean isPivot() {
+		return pivot;
+	}
+
+
+
+	/**
+	 * @param pivot true if the portal is used or usable as pivot, false elsewhere
+	 */
+	public void setPivot(boolean pivot) {
+		this.pivot = pivot;
+	}
+
+
+
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
@@ -118,4 +176,13 @@ public final class Portal implements IValidable, Comparable<Portal> {
 	
 	
 	/* =============== Others methods =============== */
+	
+	/**
+	 * restore the portal to it's neutral state
+	 */
+	public void reset(){
+		this.owningTeam = ETeam.GREY;
+		this.guardian = false;
+		this.pivot = false;
+	}
 }
