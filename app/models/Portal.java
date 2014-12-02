@@ -10,7 +10,7 @@ import com.google.maps.clients.mapsengine.geojson.Point;
 public final class Portal implements IValidable, Comparable<Portal> {
 	private String name;
 	private Point coord;
-	private ETeam owningTeam;
+	private EExtendedTeam owningTeam;
 	private boolean guardian;
 	private boolean pivot;
 	
@@ -80,7 +80,7 @@ public final class Portal implements IValidable, Comparable<Portal> {
 	/**
 	 * @return the owningTeam
 	 */
-	public ETeam getOwningTeam() {
+	public EExtendedTeam getOwningTeam() {
 		return owningTeam;
 	}
 
@@ -89,7 +89,7 @@ public final class Portal implements IValidable, Comparable<Portal> {
 	/**
 	 * @param owningTeam the owningTeam to set
 	 */
-	public void setOwningTeam(ETeam owningTeam) {
+	public void setOwningTeam(EExtendedTeam owningTeam) {
 		this.owningTeam = owningTeam;
 	}
 
@@ -181,7 +181,7 @@ public final class Portal implements IValidable, Comparable<Portal> {
 	 * restore the portal to it's neutral state
 	 */
 	public void reset(){
-		this.owningTeam = ETeam.GREY;
+		this.owningTeam = EExtendedTeam.GREY;
 		this.guardian = false;
 		this.pivot = false;
 	}
