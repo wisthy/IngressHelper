@@ -13,7 +13,7 @@ import be.shoktan.IngressFieldOptimizer.exception.ValidationException;
  */
 public class Player implements IValidable2{
 	private String name;
-	private ETeam faction;
+	private EFaction faction;
 	private int level; // 1..16
 	private Set<Portal> ownedPortals; //1..n
 	

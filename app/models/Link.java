@@ -37,7 +37,7 @@ public class Link implements IValidable{
 		super();
 		this.origin = origin;
 		this.target = target;
-		validate();
+		validateOld();
 		build();
 	}
 
@@ -83,7 +83,7 @@ public class Link implements IValidable{
 	 * @see models.IValidable#validate()
 	 */
 	@Override
-	public void validate() throws ValidationException{
+	public void validateOld() throws ValidationException{
 		if(LOG.isDebugEnabled())LOG.debug("trying to validate "+this);
 		
 		if(origin == null){

@@ -13,6 +13,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
+ * Model class used to represent a set of portals, links and fields
  * @author wisthler
  *
  */

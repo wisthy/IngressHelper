@@ -5,16 +5,16 @@ package models;
  * @author wisthler
  *
  */
-public enum ETeam {
-	BLUE(EExtendedTeam.BLUE),
-	GREEN(EExtendedTeam.GREEN);
+public enum EFaction {
+	BLUE(EExtendedFaction.BLUE),
+	GREEN(EExtendedFaction.GREEN);
 	
-	final EExtendedTeam value;
+	final EExtendedFaction value;
 
 	/**
 	 * @param value
 	 */
-	private ETeam(EExtendedTeam value) {
+	private EFaction(EExtendedFaction value) {
 		this.value = value;
 	}
 }

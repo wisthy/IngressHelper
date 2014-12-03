@@ -10,9 +10,10 @@ import com.google.maps.clients.mapsengine.geojson.Point;
 public final class Portal implements IValidable, Comparable<Portal> {
 	private String name;
 	private Point coord;
-	private EExtendedTeam owningTeam;
+	private EExtendedFaction owningTeam;
 	private boolean guardian;
 	private boolean pivot;
+	private Locality locality;
 	
 	
 	
@@ -28,7 +29,7 @@ public final class Portal implements IValidable, Comparable<Portal> {
 		this.name = name;
 		this.coord = new Point(latitude, longitude);
 		reset();
-		validate();
+		validateOld();
 	}
 
 	
@@ -80,7 +81,7 @@ public final class Portal implements IValidable, Comparable<Portal> {
 	/**
 	 * @return the owningTeam
 	 */
-	public EExtendedTeam getOwningTeam() {
+	public EExtendedFaction getOwningTeam() {
 		return owningTeam;
 	}
 
@@ -89,7 +90,7 @@ public final class Portal implements IValidable, Comparable<Portal> {
 	/**
 	 * @param owningTeam the owningTeam to set
 	 */
-	public void setOwningTeam(EExtendedTeam owningTeam) {
+	public void setOwningTeam(EExtendedFaction owningTeam) {
 		this.owningTeam = owningTeam;
 	}
 
@@ -157,7 +158,7 @@ public final class Portal implements IValidable, Comparable<Portal> {
 	 * @see models.IValidable#validate()
 	 */
 	@Override
-	public void validate() throws ValidationException {
+	public void validateOld() throws ValidationException {
 		// TODO Auto-generated method stub
 		
 	}
@@ -181,7 +182,7 @@ public final class Portal implements IValidable, Comparable<Portal> {
 	 * restore the portal to it's neutral state
 	 */
 	public void reset(){
-		this.owningTeam = EExtendedTeam.GREY;
+		this.owningTeam = EExtendedFaction.GREY;
 		this.guardian = false;
 		this.pivot = false;
 	}

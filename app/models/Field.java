@@ -40,7 +40,7 @@ public class Field implements IValidable{
 		this.links.add(link2);
 		this.links.add(link3);
 		try {
-			validate();
+			validateOld();
 		} catch (ValidationException e) {
 			LOG.error("unable to validate this field:"+ e.getMessage());
 			throw e;
@@ -79,7 +79,7 @@ public class Field implements IValidable{
 	 * @see models.IValidable#validate()
 	 */
 	@Override
-	public void validate() throws ValidationException{
+	public void validateOld() throws ValidationException{
 		if(LOG.isDebugEnabled())LOG.debug("trying to validate "+this);
 		
 		if(this.links == null) {

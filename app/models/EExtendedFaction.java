@@ -5,7 +5,7 @@ package models;
  * @author wisthler
  *
  */
-public enum EExtendedTeam {
+public enum EExtendedFaction {
 	BLUE,
 	GREEN,
 	GREY

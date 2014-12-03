@@ -1,5 +1,6 @@
 package models;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -9,4 +10,16 @@ import java.util.List;
  */
 public class Operation {
 	private List<Phase> phases;
+	private Date date;
+	
+	
+	
+	/* =============== Getters/Setters =============== */
+	
+	/**
+	 * @return the date of the operation
+	 */
+	public Date getDate() {
+		return date;
+	}
 }
