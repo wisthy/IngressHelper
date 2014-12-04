@@ -24,6 +24,7 @@ public class Link implements IValidable{
 	private Portal origin;
 	private Portal target;
 	private LineString line;
+	private EStatus status;
 
 	
 
@@ -124,5 +125,10 @@ public class Link implements IValidable{
 
 	public boolean containsLatitude(double x) {
 		return (x >= origin.getLatitude() && x <= target.getLatitude()) || (x <= origin.getLatitude() && x >= target.getLatitude()); 
+	}
+	
+	public Link reverse(){
+		Link result = new Link(target, origin);
+		return result;
 	}
 }

@@ -10,7 +10,8 @@ import com.google.maps.clients.mapsengine.geojson.Point;
 public final class Portal implements IValidable, Comparable<Portal> {
 	private String name;
 	private Point coord;
-	private EExtendedFaction owningTeam;
+	//private EExtendedFaction owningTeam;
+	private Player owner;
 	private boolean guardian;
 	private boolean pivot;
 	private Locality locality;
@@ -77,24 +78,6 @@ public final class Portal implements IValidable, Comparable<Portal> {
 	
 	
 	/* =============== Override/Implement method =============== */	
-	
-	/**
-	 * @return the owningTeam
-	 */
-	public EExtendedFaction getOwningTeam() {
-		return owningTeam;
-	}
-
-
-
-	/**
-	 * @param owningTeam the owningTeam to set
-	 */
-	public void setOwningTeam(EExtendedFaction owningTeam) {
-		this.owningTeam = owningTeam;
-	}
-
-
 
 	/**
 	 * @return true if the portal is a guardian, false elsewhere
@@ -182,7 +165,7 @@ public final class Portal implements IValidable, Comparable<Portal> {
 	 * restore the portal to it's neutral state
 	 */
 	public void reset(){
-		this.owningTeam = EExtendedFaction.GREY;
+		this.owner = null;
 		this.guardian = false;
 		this.pivot = false;
 	}
