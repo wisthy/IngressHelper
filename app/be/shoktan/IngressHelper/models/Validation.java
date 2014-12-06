@@ -1,9 +1,9 @@
-package models;
+package be.shoktan.IngressHelper.models;
 
 import java.util.HashSet;
 import java.util.Set;
 
-import be.shoktan.IngressFieldOptimizer.exception.ValidationException;
+import be.shoktan.IngressHelper.exception.ValidationException;
 
 /**
  * Utility model class representing a validation process.

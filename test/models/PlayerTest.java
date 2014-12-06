@@ -5,6 +5,9 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
+import be.shoktan.IngressHelper.models.Player;
+import be.shoktan.IngressHelper.models.Validation;
+
 public class PlayerTest {
 
 	@Before

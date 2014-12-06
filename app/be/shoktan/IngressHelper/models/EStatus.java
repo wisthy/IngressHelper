@@ -1,4 +1,4 @@
-package models;
+package be.shoktan.IngressHelper.models;
 
 public enum EStatus {
 	PLANNED,

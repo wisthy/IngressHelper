@@ -1,7 +1,7 @@
 /**
  * 
  */
-package models;
+package be.shoktan.IngressHelper.models;
 
 import java.util.Arrays;
 import java.util.List;
@@ -9,7 +9,7 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import be.shoktan.IngressFieldOptimizer.exception.ValidationException;
+import be.shoktan.IngressHelper.exception.ValidationException;
 
 import com.google.maps.clients.mapsengine.geojson.LineString;
 import com.google.maps.clients.mapsengine.geojson.Point;

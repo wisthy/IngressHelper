@@ -1,9 +1,9 @@
-package models;
+package be.shoktan.IngressHelper.models;
 
 import org.apache.commons.lang.builder.CompareToBuilder;
 import org.eclipse.jdt.core.dom.ThisExpression;
 
-import be.shoktan.IngressFieldOptimizer.exception.ValidationException;
+import be.shoktan.IngressHelper.exception.ValidationException;
 
 import com.google.maps.clients.mapsengine.geojson.Point;
 

@@ -1,4 +1,4 @@
-package controllers;
+package be.shoktan.IngressHelper.controllers;
 
 import play.*;
 import play.mvc.*;

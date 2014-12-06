@@ -1,4 +1,4 @@
-package models;
+package be.shoktan.IngressHelper.models;
 
 /**
  * Model class used to represent a city, village or other locality

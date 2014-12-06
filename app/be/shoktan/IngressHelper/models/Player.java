@@ -1,10 +1,10 @@
-package models;
+package be.shoktan.IngressHelper.models;
 
 import java.util.Set;
 
 import org.apache.commons.lang3.StringUtils;
 
-import be.shoktan.IngressFieldOptimizer.exception.ValidationException;
+import be.shoktan.IngressHelper.exception.ValidationException;
 
 /**
  * Model class representing an Ingress player

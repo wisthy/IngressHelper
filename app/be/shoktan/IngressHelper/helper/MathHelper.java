@@ -1,10 +1,10 @@
-package be.shoktan.IngressFieldOptimizer.helper;
+package be.shoktan.IngressHelper.helper;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import models.Link;
-import models.Portal;
+import be.shoktan.IngressHelper.models.Link;
+import be.shoktan.IngressHelper.models.Portal;
 
 public class MathHelper {
 	private static final Logger LOG = LoggerFactory.getLogger(MathHelper.class);

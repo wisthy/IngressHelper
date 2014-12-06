@@ -1,7 +1,7 @@
 /**
  * 
  */
-package models;
+package be.shoktan.IngressHelper.models;
 
 import java.util.Arrays;
 import java.util.HashSet;

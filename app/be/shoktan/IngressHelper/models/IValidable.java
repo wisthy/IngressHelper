@@ -1,6 +1,6 @@
-package models;
+package be.shoktan.IngressHelper.models;
 
-import be.shoktan.IngressFieldOptimizer.exception.ValidationException;
+import be.shoktan.IngressHelper.exception.ValidationException;
 
 @Deprecated
 public interface IValidable {

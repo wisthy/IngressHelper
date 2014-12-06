@@ -1,7 +1,7 @@
 /**
  * 
  */
-package models;
+package be.shoktan.IngressHelper.models;
 
 /**
  * Model class used to represent a cartography linked to a phase of an operation

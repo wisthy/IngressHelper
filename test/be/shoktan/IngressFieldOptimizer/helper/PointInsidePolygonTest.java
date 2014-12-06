@@ -6,6 +6,8 @@ import java.util.ArrayList;
 
 import org.junit.Test;
 
+import be.shoktan.IngressHelper.helper.PointInsidePolygon;
+
 public class PointInsidePolygonTest {
 	
 	@Test

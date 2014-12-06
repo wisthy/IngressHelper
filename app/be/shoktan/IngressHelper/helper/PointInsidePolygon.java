@@ -1,7 +1,7 @@
 /**
  * 
  */
-package be.shoktan.IngressFieldOptimizer.helper;
+package be.shoktan.IngressHelper.helper;
 
 import java.util.ArrayList;
 

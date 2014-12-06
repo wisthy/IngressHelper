@@ -5,6 +5,8 @@ import static org.junit.Assert.fail;
 import org.junit.Before;
 import org.junit.Test;
 
+import be.shoktan.IngressHelper.models.Cartography;
+import be.shoktan.IngressHelper.models.Portal;
 import play.test.UnitTest;
 
 public class SimpleCartographyTest extends UnitTest {

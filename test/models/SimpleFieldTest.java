@@ -11,7 +11,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import play.test.UnitTest;
-import be.shoktan.IngressFieldOptimizer.exception.ValidationException;
+import be.shoktan.IngressHelper.exception.ValidationException;
+import be.shoktan.IngressHelper.models.Field;
+import be.shoktan.IngressHelper.models.Link;
+import be.shoktan.IngressHelper.models.Portal;
 
 /**
  * @author wisthler

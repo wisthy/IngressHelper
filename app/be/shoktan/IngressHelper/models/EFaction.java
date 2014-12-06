@@ -1,4 +1,4 @@
-package models;
+package be.shoktan.IngressHelper.models;
 
 /**
  * enum representing an Ingress team. It cannot be grey

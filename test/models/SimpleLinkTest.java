@@ -11,7 +11,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import play.test.UnitTest;
-import be.shoktan.IngressFieldOptimizer.exception.ValidationException;
+import be.shoktan.IngressHelper.exception.ValidationException;
+import be.shoktan.IngressHelper.models.Link;
+import be.shoktan.IngressHelper.models.Portal;
 
 /**
  * @author wisthler
@@ -43,7 +45,7 @@ public class SimpleLinkTest extends UnitTest{
 	}
 
 	/**
-	 * Test method for {@link models.Link#getOrigin()}.
+	 * Test method for {@link be.shoktan.IngressHelper.models.Link#getOrigin()}.
 	 */
 	@Test
 	public void testGetOrigin() {
@@ -54,7 +56,7 @@ public class SimpleLinkTest extends UnitTest{
 	}
 
 	/**
-	 * Test method for {@link models.Link#getTarget()}.
+	 * Test method for {@link be.shoktan.IngressHelper.models.Link#getTarget()}.
 	 */
 	@Test
 	public void testGetTarget() {

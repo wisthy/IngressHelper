@@ -1,11 +1,13 @@
 package be.shoktan.IngressFieldOptimizer.helper;
 
 import static org.junit.Assert.assertTrue;
-import models.Link;
-import models.Portal;
 
 import org.junit.Before;
 import org.junit.Test;
+
+import be.shoktan.IngressHelper.helper.MathHelper;
+import be.shoktan.IngressHelper.models.Link;
+import be.shoktan.IngressHelper.models.Portal;
 
 public class MathHelperTest {
 
