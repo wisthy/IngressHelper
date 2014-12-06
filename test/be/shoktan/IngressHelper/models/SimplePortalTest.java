@@ -1,4 +1,4 @@
-package models;
+package be.shoktan.IngressHelper.models;
 
 
 import static org.junit.Assert.fail;

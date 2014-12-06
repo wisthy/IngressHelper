@@ -1,4 +1,4 @@
-package be.shoktan.IngressFieldOptimizer.helper;
+package be.shoktan.IngressHelper.helper;
 
 import static org.junit.Assert.*;
 
