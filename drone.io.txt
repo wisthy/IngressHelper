@@ -4,3 +4,8 @@ unzip -q play-${PLAY_VERSION}.zip
 play-${PLAY_VERSION}/play clean-all
 play-${PLAY_VERSION}/play compile
 play-${PLAY_VERSION}/play test
+
+
+
+
+PLAY_VERSION=1.3.0-RC3
